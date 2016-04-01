@@ -5,11 +5,15 @@ use strict;
 use warnings;
 
 my $install_directory = "./.git/hooks/";
+my $shellrc = ".bashrc";
 
 foreach my $arg (@ARGV) {
     if ($arg =~ /^--install-directory=(.*)/) {
         $install_directory = "$1";
     }
+    elsif ($arg =~ /^--shell-config-file=(.*)/) {
+        $shellrc = "$1";
+    }
 }
 
-system("cp hooks/* $install_directory");
+system("cp ~/bin/hooks/* $install_directory");

@@ -1,7 +1,7 @@
 # Git Hooks
 The git hooks for Command and Data Handling :octopus:
 
-#INSTALLATION
+##INSTALLATION
 
 Download the files using:
 ```
@@ -17,12 +17,12 @@ mv hook_installer ~/bin
 ###Optional:
 You can run
 ```
-echo alias git_init_hooks='git init; hook_installer' >> ~/.bashrc"
+echo alias git_init_hooks='git init; hook_installer' >> ~/.bashrc
 ```
 to add an alias that allows you to create a repository with the hooks in one
 step.
 
-#USAGE
+##USAGE
 After creating a new git repository with git init run:
 ```
 hook_installer

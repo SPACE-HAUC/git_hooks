@@ -1,0 +1,15 @@
+#!/usr/bin/env perl
+use Data::Dumper;
+
+use strict;
+use warnings;
+
+my $install_directory = "./.git/hooks/";
+
+foreach my $arg (@ARGV) {
+    if ($arg =~ /^--install-directory=(.*)/) {
+        $install_directory = "$1";
+    }
+}
+
+system("cp hooks/* $install_directory");

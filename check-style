@@ -1,0 +1,30 @@
+#!/usr/bin/env perl
+use Data::Dumper;
+use strict;
+use warnings;
+
+system('powerlint');
+
+my $encountered_error = 0;
+my @errors;
+
+my $filename = 'output.dat';
+open(my $fh, '<:encoding(UTF-8)', $filename)
+  or die "Could not open file '$filename' $!";
+
+while (my $row = <$fh>) {
+  chomp $row;
+  if (!($row =~ /^Done processing.*|^Total errors found: [\d]*/)) {
+   push(@errors, $row);
+  }
+}
+
+if(@errors) {
+  my $error;
+  print("YOUR CODE CONTAINS LINTING ERRORS:\n");
+  print Dumper (@errors);
+  print("\n\n Please fix these errors befor resubmitting your code\n");
+  exit (1);
+} else {
+  system('rm output.dat');
+}

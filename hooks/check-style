@@ -14,16 +14,16 @@ open(my $fh, '<:encoding(UTF-8)', $filename)
 
 while (my $row = <$fh>) {
   chomp $row;
-  if (!($row =~ /^Done processing.*|^Total errors found: [\d]*/)) {
+  if (!($row =~ /^(?:Done|Total)|#ifndef header guard has wrong style|#endif line should be/)) {
    push(@errors, $row);
   }
 }
 
 if(@errors) {
   my $error;
-  print("YOUR CODE CONTAINS LINTING ERRORS:\n");
-  print Dumper (@errors);
-  print("\n\n Please fix these errors befor resubmitting your code\n");
+  print("YOUR CODE CONTAINS LINTING ERRORS:\n\n");
+  print Dumper (\@errors);
+  print("\nPlease fix these errors befor resubmitting your code\nUse 'cat output.dat' for more info\n");
   exit (1);
 } else {
   system('rm output.dat');

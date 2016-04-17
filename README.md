@@ -32,3 +32,5 @@ simply run the command
 ```
 git_init_hooks
 ```
+
+[![GPL License](http://darrienglasser.com/gpl-v3-logo.jpg)](GPL License)

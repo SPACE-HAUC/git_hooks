@@ -30,7 +30,7 @@ open(my $fh, '<:encoding(UTF-8)', $filename)
 
 while (my $row = <$fh>) {
   chomp $row;
-  if (!($row =~ /^(?:Done|Total)|#ifndef header guard has wrong style|#endif line should be/)) {
+  if (!($row =~ /^(?:Done|Total|build)|#ifndef header guard has wrong style|#endif line should be/)) {
    push(@errors, $row);
   }
 }
